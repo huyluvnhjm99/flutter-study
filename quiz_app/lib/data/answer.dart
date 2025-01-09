@@ -1,6 +1,6 @@
 class Answer {
   final String text;
-  final bool isAnswer;
+  final bool isCorrect;
 
-  const Answer(this.text, this.isAnswer);
+  const Answer(this.text, this.isCorrect);
 }

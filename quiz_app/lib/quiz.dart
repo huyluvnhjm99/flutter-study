@@ -32,13 +32,20 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers.removeRange(0, selectedAnswers.length);
+      activeScreen = StartScreen(switchScreen);
+    });
+  }
+
   void chooseAnswer(Answer answer) {
     selectedAnswers.add(answer);
 
+    // After finishing all question
     if (selectedAnswers.length == question.length) {
       setState(() {
-        activeScreen = ResultScreen(selectedAnswers);
-        selectedAnswers.removeRange(0, selectedAnswers.length);
+        activeScreen = ResultScreen(selectedAnswers, restartQuiz);
       });
     }
   }
