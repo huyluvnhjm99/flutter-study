@@ -1,5 +1,6 @@
 import 'package:expense_app/common/styled_text.dart';
 import 'package:expense_app/models/expense.dart';
+import 'package:expense_app/widget/chart/chart.dart';
 import 'package:expense_app/widget/expenses_list/expenses_list.dart';
 import 'package:expense_app/widget/new_expense.dart';
 import 'package:flutter/material.dart';
@@ -94,7 +95,7 @@ class _ExpensesState extends State<Expenses> {
         ),
         child: Column(
           children: [
-            StyledText('The chart...', 24, Constant.primaryTextColor, true),
+            Chart(expenses: _registeredExpenses),
             Expanded(
               child: mainContent,
             ),

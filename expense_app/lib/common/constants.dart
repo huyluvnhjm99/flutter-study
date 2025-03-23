@@ -13,4 +13,11 @@ class Constant {
 
   static const primaryTextColor = Color.fromARGB(255, 182, 98, 250);
   static const cancelColor = Color.fromARGB(255, 246, 2, 2);
+  static const primaryDarkColor = Color.fromARGB(255, 5, 99, 125);
+
+  static var kColorScheme = ColorScheme.fromSeed(seedColor: primaryTextColor);
+  static var kDarkColorScheme = ColorScheme.fromSeed(
+    brightness: Brightness.dark,
+    seedColor: primaryDarkColor,
+  );
 }

@@ -42,7 +42,8 @@ class ExpenseItem extends StatelessWidget {
                     children: [
                       const Icon(Icons.subject, size: 13,),
                       const SizedBox(width: 3.0),
-                      Expanded(child: StyledText(expense.title, 14.0, Colors.black, false)),
+                      // Expanded(child: StyledText(expense.title, 14.0, Colors.black, false)),
+                      Expanded(child: Text(expense.title, style: Theme.of(context).textTheme.titleLarge,)),
                     ],
                   ),
                   Row(
