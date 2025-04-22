@@ -21,8 +21,8 @@ class _ExpensesState extends State<Expenses> {
     Expense('Binance Future', 20000.99, DateTime.now(), Category.leisure),
     Expense(
         'Popeyes', 15.69, DateTime.utc(2025, 1, 10, 10, 50, 14), Category.food),
-    Expense('Không có cái ngu nào như cái ngu này', 22059.69,
-        DateTime.utc(2025, 1, 10, 10, 50, 14), Category.work),
+    Expense('Ehehe', 22059.69, DateTime.utc(2025, 1, 10, 10, 50, 14),
+        Category.work),
   ];
 
   void _openAddExpenseOverlay() {
@@ -42,37 +42,38 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
-
     final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(() {
       _registeredExpenses.remove(expense);
     });
     ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        duration: const Duration(seconds: 3),
-        content: StyledText('Expense deleted!', 16, Constant.primaryTextColor, true),
-        action: SnackBarAction(
-            label: 'Undo',
-            onPressed: () {
-              setState(() {
-                _registeredExpenses.insert(expenseIndex, expense);
-              });
-            },
-        ),
-      )
-    );
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(seconds: 3),
+      content:
+          StyledText('Expense deleted!', 16, Constant.primaryTextColor, true),
+      action: SnackBarAction(
+        label: 'Undo',
+        onPressed: () {
+          setState(() {
+            _registeredExpenses.insert(expenseIndex, expense);
+          });
+        },
+      ),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    double screenW = MediaQuery.of(context).size.width;
 
     Widget mainContent = const Center(
-      child: StyledText('No expense found. Start adding some!', 14, Constant.primaryTextColor, true),
+      child: StyledText('No expense found. Start adding some!', 14,
+          Constant.primaryTextColor, true),
     );
 
     if (_registeredExpenses.isNotEmpty) {
-      mainContent = ExpensesList(_registeredExpenses, onRemoveExpense: _removeExpense);
+      mainContent =
+          ExpensesList(_registeredExpenses, onRemoveExpense: _removeExpense);
     }
 
     return Scaffold(
@@ -93,14 +94,25 @@ class _ExpensesState extends State<Expenses> {
             end: Constant.endAlignment,
           ),
         ),
-        child: Column(
-          children: [
-            Chart(expenses: _registeredExpenses),
-            Expanded(
-              child: mainContent,
-            ),
-          ],
-        ),
+        child: screenW < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registeredExpenses),
+                  Expanded(
+                    child: mainContent,
+                  ),
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: Chart(expenses: _registeredExpenses),
+                  ),
+                  Expanded(
+                    child: mainContent,
+                  ),
+                ],
+              ),
       ),
     );
   }

@@ -8,7 +8,6 @@ void main() {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(MaterialApp(
     theme: ThemeData().copyWith(
-      useMaterial3: true,
       colorScheme: Constant.kColorScheme,
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Constant.kColorScheme.onPrimaryContainer,
@@ -31,7 +30,6 @@ void main() {
           )),
     ),
     darkTheme: ThemeData.dark().copyWith(
-      useMaterial3: true,
       colorScheme: Constant.kDarkColorScheme,
     ),
     // themeMode: ThemeMode.dark,
