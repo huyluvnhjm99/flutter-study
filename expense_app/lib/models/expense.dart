@@ -10,7 +10,7 @@ class Expense {
   final DateTime date;
   final Category category;
 
-  Expense(this.title, this.amount, this.date, this.category) : id = Uuid().v4();
+  Expense(this.title, this.amount, this.date, this.category) : id = const Uuid().v4();
 
   String get formattedDate {
     return DateFormat.yMEd().format(date);

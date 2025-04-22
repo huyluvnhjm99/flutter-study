@@ -75,10 +75,10 @@ class _NewExpenseState extends State<NewExpense> {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
 
     return Padding(
-      padding: EdgeInsets.fromLTRB(16.0, 46.0, 16.0, 16.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 46.0, 16.0, 16.0),
       child: Column(
         children: [
-          StyledText(
+          const StyledText(
               'Create new Expense', 24, Constant.primaryTextColor, false),
           Row(
             children: [
@@ -89,7 +89,7 @@ class _NewExpenseState extends State<NewExpense> {
                   decoration: const InputDecoration(label: Text('Title')),
                 ),
               ),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
               DropdownButton(
                 value: _selectedCategory,
                 items: Category.values

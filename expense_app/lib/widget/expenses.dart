@@ -50,7 +50,7 @@ class _ExpensesState extends State<Expenses> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 3),
       content:
-          StyledText('Expense deleted!', 16, Constant.primaryTextColor, true),
+          const StyledText('Expense deleted!', 16, Constant.primaryTextColor, true),
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {
@@ -64,7 +64,7 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
-    double screenW = MediaQuery.of(context).size.width;
+    final double screenW = MediaQuery.of(context).size.width;
 
     Widget mainContent = const Center(
       child: StyledText('No expense found. Start adding some!', 14,
@@ -78,7 +78,7 @@ class _ExpensesState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        title: StyledText('Ex Tracker', 24, Constant.primaryTextColor, true),
+        title: const StyledText('Ex Tracker', 24, Constant.primaryTextColor, true),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
@@ -87,7 +87,7 @@ class _ExpensesState extends State<Expenses> {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: Constant.colors,
             begin: Constant.beginAlignment,

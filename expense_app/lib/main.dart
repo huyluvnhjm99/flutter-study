@@ -13,7 +13,7 @@ void main() {
         backgroundColor: Constant.kColorScheme.onPrimaryContainer,
         foregroundColor: Constant.kColorScheme.primaryContainer,
       ),
-      cardTheme: CardTheme().copyWith(
+      cardTheme: const CardTheme().copyWith(
         color: Constant.kColorScheme.secondaryContainer,
         margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       ),
