@@ -49,8 +49,8 @@ class _ExpensesState extends State<Expenses> {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       duration: const Duration(seconds: 3),
-      content:
-          const StyledText('Expense deleted!', 16, Constant.primaryTextColor, true),
+      content: const StyledText(
+          'Expense deleted!', 16, Constant.primaryTextColor, true),
       action: SnackBarAction(
         label: 'Undo',
         onPressed: () {
@@ -78,7 +78,8 @@ class _ExpensesState extends State<Expenses> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const StyledText('Ex Tracker', 24, Constant.primaryTextColor, true),
+        title:
+            const StyledText('Ex Tracker', 24, Constant.primaryTextColor, true),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
@@ -94,7 +95,7 @@ class _ExpensesState extends State<Expenses> {
             end: Constant.endAlignment,
           ),
         ),
-        child: screenW < 600
+        child: screenW < 800
             ? Column(
                 children: [
                   Chart(expenses: _registeredExpenses),

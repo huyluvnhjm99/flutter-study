@@ -28,6 +28,7 @@ ios/build/
 *.mode2v3
 *.perspectivev3
 xcuserdata/
+.flutter-plugins-dependencies
 
 # macOS
 macos/Flutter/ephemeral/
