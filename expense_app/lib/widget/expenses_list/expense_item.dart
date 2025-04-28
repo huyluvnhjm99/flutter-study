@@ -25,13 +25,6 @@ class ExpenseItem extends StatelessWidget {
                           ? Icons.work_history_outlined
                           : Icons.card_travel),
             ),
-            // SizedBox(
-            //   height: 50.0,
-            //   child: const VerticalDivider(
-            //     thickness: 1,
-            //     color: Colors.grey,
-            //   ),
-            // ),
             const SizedBox(width: 10.0),
             SizedBox(
               width: 200.0, // Set a fixed width for horizontal scrolling
@@ -40,15 +33,25 @@ class ExpenseItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.subject, size: 13,),
+                      const Icon(
+                        Icons.subject,
+                        size: 13,
+                      ),
                       const SizedBox(width: 3.0),
                       // Expanded(child: StyledText(expense.title, 14.0, Colors.black, false)),
-                      Expanded(child: Text(expense.title, style: Theme.of(context).textTheme.titleLarge,)),
+                      Expanded(
+                          child: Text(
+                        expense.title,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      )),
                     ],
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.date_range, size: 14,),
+                      const Icon(
+                        Icons.date_range,
+                        size: 14,
+                      ),
                       const SizedBox(width: 3.0),
                       StyledText(
                           expense.formattedDate, 14.0, Colors.black, false),
@@ -59,9 +62,10 @@ class ExpenseItem extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10.0),
-            const Spacer(),
-            StyledText('\$ ${expense.amount.toStringAsFixed(2)}', 20,
-                Constant.primaryTextColor, true),
+            Expanded(
+              child: StyledText('\$ ${expense.amount.toStringAsFixed(2)}', 18,
+                  Constant.primaryTextColor, true),
+            ),
           ],
         ),
       ),
